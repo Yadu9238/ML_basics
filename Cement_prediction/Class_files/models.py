@@ -155,3 +155,8 @@ class MyLogisticRegression:
         Y = np.where(Z > 0.5,1,0)
         return y_pred
 
+
+
+
+
+

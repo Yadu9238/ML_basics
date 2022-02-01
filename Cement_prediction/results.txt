@@ -1,0 +1,6 @@
+              Model Name     Score         MSE  R2 Score       MAE
+       Linear Regression  0.612117  109.199409  0.612117  8.483208
+       Decision Trees     0.779221   62.155208  0.779221  5.151046
+       KNN                0.644419  100.105523  0.644419  7.794944
+  Support Vector Machine  0.570958  120.786613  0.570958  8.796815
+  Gradient Boosting       0.893460   29.993943  0.893460  4.003528
