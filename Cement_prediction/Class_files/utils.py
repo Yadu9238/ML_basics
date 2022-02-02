@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
+from .Mylogger import log
 
-
+logger = log(path = "logs/", file = "workflow.log")
 def read_data(FileName):
     """
         Reading dataset from local files such as csv, txt or xls
@@ -17,19 +18,28 @@ def read_data(FileName):
 
     """
     import os
+    logger.info("Trying to load data from {}".format(FileName))
     if FileName not in os.listdir():
-        print("Error file not in directory")
+        logger.warning("file not in directory")
+        logger.info("File not found, couldnt load")
+        return 
     
     ext = FileName.split('.')
     
     if 'xls' in ext[1]:
         df = pd.read_excel(FileName)
+        logger.info("Provided file contains "+str(df.shape[0])+" rows and "+str(df.shape[1])+" columns")
+        logger.info("Successfully loaded {}".format(FileName))
         return df
     if 'txt' in ext[1]:
         df = pd.read_csv(FileName, sep = ' ',header = None)
+        logger.info("Provided file contains "+str(df.shape[0])+" rows and "+str(df.shape[1])+" columns")
+        logger.info("Successfully loaded {}".format(FileName))
         return df
     if 'csv' in ext[1]:
         df = pd.read_csv(FileName)
+        logger.info("Provided file contains "+str(df.shape[0])+" rows and "+str(df.shape[1])+" columns")
+        logger.info("Successfully loaded {}".format(FileName))
         return df
 
 def split_data(MyDataFrame,split = 0.2):
@@ -58,6 +68,8 @@ def split_data(MyDataFrame,split = 0.2):
 
     """
     #DataFrame = DataFrame.copy()
+    logger.info("Splitting DataSet into train and test")
+    logger.info(str((1-split)*100 )+"% considered for Training, "+str(split*100)+"% for Testing")
     X = MyDataFrame.iloc[:,:-1]
     y = MyDataFrame.iloc[:,-1].values
     from sklearn.model_selection import train_test_split
@@ -67,6 +79,6 @@ def split_data(MyDataFrame,split = 0.2):
     sc = StandardScaler() 
     X_train = sc.fit_transform(X_train) 
     X_test = sc.transform(X_test)
-
+    logger.info("Splitting DataSet done")
     return X_train, X_test, y_train, y_test
     

@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
-
-
+from .Mylogger import log
+logger = log(path = "logs/", file = "workflow.log")
 
 def Boxplot(DataFrame, n):
     """
@@ -22,6 +22,9 @@ def Boxplot(DataFrame, n):
         attributes of dataset
 
     """
+    logger.info("Boxplot called")
+    logger.info("Plotting")
+
     column = [i for i in DataFrame.columns]
     m = len(column) // n
     #print(m,n)
@@ -31,6 +34,7 @@ def Boxplot(DataFrame, n):
         sns.boxplot(DataFrame[i[1]])
         plt.title("{} distribution".format(i[1]))
 
+    logger.info("exiting Boxplot...")
 
 
 def pairplot(DataFrame, n):
@@ -53,6 +57,8 @@ def pairplot(DataFrame, n):
         attributes of dataset
 
     """
+    logger.info("pairplot called")
+    logger.info("Plotting")
     column = [i for i in DataFrame.columns]
     Y = column[-1]
     column = column[:-1]
@@ -63,6 +69,7 @@ def pairplot(DataFrame, n):
         plt.subplot(m+1,n,i[0]+1)
         sns.regplot(x = DataFrame[i[1]], y = DataFrame[Y],data = DataFrame)
         #plt.title("{} distribution".format(i[1]))
+    logger.info("exiting pairplot...")
 
 def Scatterplot(DataFrame, n):
     """
@@ -83,6 +90,8 @@ def Scatterplot(DataFrame, n):
         attributes of dataset
 
     """
+    logger.info("Scatterplot called")
+    logger.info("Plotting")
     column = [i for i in DataFrame.columns]
     m = len(column) // n
     #print(m,n)
@@ -91,6 +100,7 @@ def Scatterplot(DataFrame, n):
         plt.subplot(m+1,n,i[0]+1)
         sns.scatterplot(DataFrame[i[1]])
         plt.title("{} distribution".format(i[1]))
+    logger.info("exiting Scatterplot...")
 
 def Violinplot(DataFrame, n):
     """
@@ -112,6 +122,8 @@ def Violinplot(DataFrame, n):
         attributes of dataset
 
     """
+    logger.info("Violinplot called")
+    logger.info("Plotting")
     column = [i for i in DataFrame.columns]
     m = len(column) // n
     #print(m,n)
@@ -120,6 +132,8 @@ def Violinplot(DataFrame, n):
         plt.subplot(m+1,n,i[0]+1)
         sns.violinplot(x = DataFrame[i[1]])
         plt.title("{} distribution".format(i[1]))
+
+    logger.info("exiting Violinplot...")
 
 
 

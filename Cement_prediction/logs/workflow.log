@@ -1,0 +1,81 @@
+INFO: 2022-02-02 11:36:40,088: Trying to load data from Concrete_Data.xls
+INFO: 2022-02-02 11:36:40,160: Provided file contains 1030 rows and 9 columns
+INFO: 2022-02-02 11:36:40,160: Successfully loaded Concrete_Data.xls
+INFO: 2022-02-02 11:36:40,324: Boxplot called
+INFO: 2022-02-02 11:36:40,325: Plotting
+INFO: 2022-02-02 11:36:40,501: exiting Boxplot...
+INFO: 2022-02-02 11:36:41,182: Violinplot called
+INFO: 2022-02-02 11:36:41,182: Plotting
+INFO: 2022-02-02 11:36:41,367: exiting Violinplot...
+INFO: 2022-02-02 11:36:41,935: DataHandling obj created
+INFO: 2022-02-02 11:36:41,950: Trying to find outliers
+INFO: 2022-02-02 11:37:27,626: Trying to load data from Concrete_Data.xls
+INFO: 2022-02-02 11:37:27,702: Provided file contains 1030 rows and 9 columns
+INFO: 2022-02-02 11:37:27,705: Successfully loaded Concrete_Data.xls
+INFO: 2022-02-02 11:37:27,876: Boxplot called
+INFO: 2022-02-02 11:37:27,876: Plotting
+INFO: 2022-02-02 11:37:28,055: exiting Boxplot...
+INFO: 2022-02-02 11:37:28,744: Violinplot called
+INFO: 2022-02-02 11:37:28,744: Plotting
+INFO: 2022-02-02 11:37:28,920: exiting Violinplot...
+INFO: 2022-02-02 11:37:29,486: DataHandling obj created
+INFO: 2022-02-02 11:37:29,501: Trying to find outliers
+INFO: 2022-02-02 11:37:29,514: 89 Outliers Found
+INFO: 2022-02-02 11:37:29,581: pairplot called
+INFO: 2022-02-02 11:37:29,581: Plotting
+INFO: 2022-02-02 11:37:30,498: exiting pairplot...
+INFO: 2022-02-02 11:37:31,468: Splitting DataSet into train and test
+INFO: 2022-02-02 11:37:31,468: 80.0% considered for Training, 20.0% for Testing
+INFO: 2022-02-02 11:37:32,026: Splitting DataSet done
+INFO: 2022-02-02 11:37:32,154: Trained on  Linear Regression
+INFO: 2022-02-02 11:37:32,154: Score = 0.57|MSE = 105.7822|R2 score =0.57|MAE = 8.2271
+INFO: 2022-02-02 11:37:32,154: - - - - - - - - - - - - - - -
+INFO: 2022-02-02 11:37:32,159: Trained on  Decision Trees   
+INFO: 2022-02-02 11:37:32,159: Score = 0.7749|MSE = 55.3873|R2 score =0.7749|MAE = 4.5498
+INFO: 2022-02-02 11:37:32,159: - - - - - - - - - - - - - - -
+INFO: 2022-02-02 11:37:32,165: Trained on  KNN              
+INFO: 2022-02-02 11:37:32,165: Score = 0.6747|MSE = 80.0329|R2 score =0.6747|MAE = 6.8325
+INFO: 2022-02-02 11:37:32,165: - - - - - - - - - - - - - - -
+INFO: 2022-02-02 11:37:32,223: Trained on  Support Vector Machine
+INFO: 2022-02-02 11:37:32,223: Score = 0.6609|MSE = 83.431|R2 score =0.6609|MAE = 7.4376
+INFO: 2022-02-02 11:37:32,223: - - - - - - - - - - - - - - -
+INFO: 2022-02-02 11:37:32,322: Trained on  Gradient Boosting     
+INFO: 2022-02-02 11:37:32,322: Score = 0.8731|MSE = 31.2177|R2 score =0.8731|MAE = 3.9947
+INFO: 2022-02-02 11:37:32,322: - - - - - - - - - - - - - - -
+INFO: 2022-02-02 11:37:32,373: Opening results.txt
+INFO: 2022-02-02 11:37:32,379: Results saved in results.txt file
+INFO: 2022-02-02 14:59:30,618: Trying to load data from Concrete_Data.xls
+INFO: 2022-02-02 14:59:30,719: Provided file contains 1030 rows and 9 columns
+INFO: 2022-02-02 14:59:30,720: Successfully loaded Concrete_Data.xls
+INFO: 2022-02-02 14:59:30,896: Boxplot called
+INFO: 2022-02-02 14:59:30,897: Plotting
+INFO: 2022-02-02 14:59:31,071: exiting Boxplot...
+INFO: 2022-02-02 14:59:31,746: Violinplot called
+INFO: 2022-02-02 14:59:31,746: Plotting
+INFO: 2022-02-02 14:59:31,924: exiting Violinplot...
+INFO: 2022-02-02 14:59:32,478: DataHandling obj created
+INFO: 2022-02-02 14:59:32,493: Trying to find outliers
+INFO: 2022-02-02 14:59:32,502: 89 Outliers Found
+INFO: 2022-02-02 14:59:32,587: pairplot called
+INFO: 2022-02-02 14:59:32,587: Plotting
+INFO: 2022-02-02 14:59:33,526: exiting pairplot...
+INFO: 2022-02-02 14:59:34,526: Splitting DataSet into train and test
+INFO: 2022-02-02 14:59:34,526: 80.0% considered for Training, 20.0% for Testing
+INFO: 2022-02-02 14:59:35,270: Splitting DataSet done
+INFO: 2022-02-02 14:59:35,459: Trained on  Linear Regression
+INFO: 2022-02-02 14:59:35,459: Score = 0.57|MSE = 105.7822|R2 score =0.57|MAE = 8.2271
+INFO: 2022-02-02 14:59:35,459: - - - - - - - - - - - - - - -
+INFO: 2022-02-02 14:59:35,464: Trained on  Decision Trees   
+INFO: 2022-02-02 14:59:35,464: Score = 0.7797|MSE = 54.1872|R2 score =0.7797|MAE = 4.5484
+INFO: 2022-02-02 14:59:35,464: - - - - - - - - - - - - - - -
+INFO: 2022-02-02 14:59:35,469: Trained on  KNN              
+INFO: 2022-02-02 14:59:35,469: Score = 0.6747|MSE = 80.0329|R2 score =0.6747|MAE = 6.8325
+INFO: 2022-02-02 14:59:35,469: - - - - - - - - - - - - - - -
+INFO: 2022-02-02 14:59:35,528: Trained on  Support Vector Machine
+INFO: 2022-02-02 14:59:35,528: Score = 0.6609|MSE = 83.431|R2 score =0.6609|MAE = 7.4376
+INFO: 2022-02-02 14:59:35,529: - - - - - - - - - - - - - - -
+INFO: 2022-02-02 14:59:35,630: Trained on  Gradient Boosting     
+INFO: 2022-02-02 14:59:35,630: Score = 0.8729|MSE = 31.2774|R2 score =0.8729|MAE = 4.0048
+INFO: 2022-02-02 14:59:35,630: - - - - - - - - - - - - - - -
+INFO: 2022-02-02 14:59:35,679: Opening results.txt
+INFO: 2022-02-02 14:59:35,682: Results saved in results.txt file

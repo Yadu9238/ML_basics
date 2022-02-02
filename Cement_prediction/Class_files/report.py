@@ -1,3 +1,6 @@
+from .Mylogger import log
+logger = log(path = "logs/", file = "workflow.log")
+
 def save_results(df, name):
 	"""
 		Save the DataFrame to a text file
@@ -13,9 +16,10 @@ def save_results(df, name):
 		current working directory
 
 	"""
+	logger.info("Opening {}".format(name))
 	myFile = open(name, mode = 'w')
 	myFile.write(df.to_string(index = False))
 	myFile.close()
-	print("Results saved in " + name+" file")
+	logger.info("Results saved in " + name+" file")
 
 

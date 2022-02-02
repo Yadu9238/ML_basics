@@ -2,8 +2,11 @@
 
 
 import operator
-from metrics import euclidean_distance
+from .metrics import euclidean_distance
 
+from .Mylogger import log
+
+logger = log(path = "logs/", file = "workflow.log")
 
 class MyLinearRegression:
     """
@@ -15,7 +18,7 @@ class MyLinearRegression:
 
 
     def __init__(self, x , y):
-
+        logger.info("Linear Regression obj created")
         self.data = x
         self.label = y
         self.m = 0
@@ -23,7 +26,7 @@ class MyLinearRegression:
         self.n = len(x)
          
     def fit(self , epochs , lr):
-         
+        logger.info("Trying to fit Linear regression ")
         #Implementing Gradient Descent
         for i in range(epochs):
             y_pred = self.m * self.data + self.b
@@ -51,10 +54,10 @@ class MyKNN:
     """
 
 
-    #def __init__(self,x,y):
-      
+    def __init__(self,x,y):
+        logger.info("KNN obj created")
     
-    def knn(trainingSet, testInstancen k):
+    def knn(trainingSet, testInstance, k):
         """
         returns the nearest neighbour classification when a dataset
         and a datapoint is passed
@@ -73,6 +76,7 @@ class MyKNN:
 
         Euclidean Distance is defined in metrics.py
         """
+        logger.info("Training for KNN started")
         distances = {}
         sort = {}
         
@@ -94,6 +98,7 @@ class MyKNN:
                 classVotes[response] = 1
                 
         sortedVotes = serted(classVotes.items(), key = operator.itemgetter(1))
+        logger.info("Training done")
         return sortedVotes[0][0]
 
 
@@ -109,11 +114,12 @@ class MyLogisticRegression:
     def __init__(self, learning_rate, iterations):
         self.learning_rate = learning_rate
         self.iterations = iterations
-        print("MyLogisticRegression obj created")
+        logger.info("MyLogisticRegression obj created")
 
     def fit(self, X, Y):
         self.m, self.n = X.shape
 
+        logger.info("Fitting for Logistic Regression")
         #weight initialization
 
         self.W = np.zeros(self.n)
@@ -155,6 +161,60 @@ class MyLogisticRegression:
         Y = np.where(Z > 0.5,1,0)
         return y_pred
 
+def train_on_models(X_train,X_test,y_train,y_test):
+    """
+       This is a user-defined function that trains 
+       the following models with default parameters:
+
+       1. Linear Regression
+       2. Decision Tree regressor
+       3. K neighbors regressor
+       4. Support Vector Machine (RBF Kernel)
+       5. Gradient Boosting
+
+       Parameters:
+
+       X_train, X_test, y_train, y_test:
+
+       These are the split data on which model are to be
+       trained and tested
+
+       Returns:
+       data: Pandas DataFrame
+                A Dataframe containing model name, their scores and 
+                respective metrics such as Mean-squared-error, 
+                R2 score and Mean-Absolute-error
+
+
+    """
+    from sklearn.linear_model import LinearRegression
+    from sklearn.tree import DecisionTreeRegressor
+    from sklearn.neighbors import KNeighborsRegressor
+    from sklearn.svm import SVR
+    from sklearn.ensemble import GradientBoostingRegressor
+    from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score 
+    import pandas as pd
+    models = {
+        " Linear Regression"      : LinearRegression(),
+        " Decision Trees   "      : DecisionTreeRegressor(),
+        " KNN              "      : KNeighborsRegressor(),
+        " Support Vector Machine" : SVR(),
+        " Gradient Boosting     " : GradientBoostingRegressor()
+        }
+    results = []
+    for name, model in models.items():
+            model.fit(X_train,y_train)
+            score = model.score(X_test,y_test)
+            y_pred = model.predict(X_test)
+            mse = mean_squared_error(y_test,y_pred)
+            r2 = r2_score(y_test,y_pred)
+            mae = mean_absolute_error(y_test,y_pred)
+            results.append([name,score,mse,r2,mae])
+            logger.info("Trained on "+name)
+            logger.info("Score = "+str(round(score,4))+"|MSE = "+str(round(mse,4))+"|R2 score ="+str(round(r2,4))+"|MAE = "+str(round(mae,4)))
+            logger.info("- - - - - - - - - - - - - - -")
+    data = pd.DataFrame(results, columns = ['Model Name', 'Score','MSE','R2 Score', 'MAE'])
+    return data 
 
 
 
