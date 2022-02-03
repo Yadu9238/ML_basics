@@ -52,26 +52,14 @@ def accuracy_score(y_true,y_pred):
 	return accuracy 
 
 
-def calculate_variance(X):
+
+def mean_absolute_error(y_true, y_pred):
 	"""
-	Return the variances of the features in dataset X
+		Compares actual Y value and predicted Y value
+		and returns us the average of the absolute error
 	"""
+	mae = 0.0
+	for i in range(len(y_true)):
+		mae += abs(y_pred[i] - y_true[i])
 
-	mean  = np.ones(np.shape(X)) * X.mean(0)
-	n_samples = np.shape(X)[0]
-
-	variance = (1 / n_samples) * np.diag((X - mean).T.dot(X - mean))
-
-	return variance 
-
-
-
-def std_deviation(X):
-	"""
-		Calculates the standard deviations of features 
-		in the dataset
-
-	"""
-	std_dev = np.sqrt(calculate_variance(X))
-	return std_dev
-
+	return mae / float(len(y_true))
