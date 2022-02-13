@@ -1,0 +1,18 @@
+.landingImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url("bg.jpg") no-repeat;
+    box-shadow: 5px 5px 10px 0 black inset, -5px -5px 10px 0 black inset;
+    height: 100vh;
+    color: white;
+    font-family:'Product Sans';
+}
+p {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+}

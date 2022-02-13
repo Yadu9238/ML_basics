@@ -1,0 +1,96 @@
+<html>
+<head><title>Concrete strength Prediction</title></head>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<body bgcolor="black">
+         
+
+    
+    
+        <div class="landingImage">
+            <h1 style="font-family:verdana;">Concrete Strength Prediction</h1>
+            <p style="font-family:verdana;text-align:center;padding-left: 100pt;padding-right: 100pt;">Concrete is a necessary and useful material for any type of construction work.It is usually made up of cement, aggregate and water in some proportions and binds themselves into a hardened massHere We are trying to predict the compressive strength in MegaPascalswhen a user gives info on the amount of components( units are taken in kg per m^3 of a mixture)and amount of time its allowed to settle in days<br>
+        </div>
+    
+        <div style="float:bottom; height:100%;">
+            <br><br><br>
+            <p style="font-family:verdana;text-align:center;padding-left: 100pt;padding-right: 100pt;color:white">Enter the amount for the respective components below</p>
+            <br><br><br><br><br><br><br>	    
+            <table style="margin: 0px auto;color:white;font-family:verdana;font-size: 20px;" cellspacing="10">
+        <form action="{{ url_for('predict')}}"method="post">
+            <tr>
+                <td>
+                    <label for="Cement">
+                        Cement
+                    </label>
+                </td>
+                <td><input type="number" id="Cement" name="Cem" min = "0" value ="0"/>
+                </td>
+            
+                <td><label for="Blast Furnace Slag">
+                        Blast Furnace Slag
+                    </label>
+                </td>
+                <td><input type="number" id="Blast Furnace Slag" name="BFS" min = "0" value ="0"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Fly Ash ">
+                        Fly Ash 
+                    </label>
+                </td>
+                <td><input type="number" id="Fly Ash" name="Fly Ash"min = "0" value ="0"/>
+                </td>
+            
+                <td><label for="Water">
+                        Water
+                    </label>
+                </td>
+                <td><input type="number" id="Water" name="Water" min = "0" value ="0"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Superplasticizer">
+                        Superplasticizer
+                    </label>
+                </td>
+                <td><input type="number" id="Superplasticizer" name="Super" min = "0" value ="0"/>
+                </td>
+            
+                <td><label for="Coarse Aggregate">
+                        Coarse Aggregate
+                    </label>
+                </td>
+                <td><input type="number" id="Coarse Aggregate" name="CoarseAgg" min = "0" value ="0"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Fine Aggregate">
+                        Fine Aggregate
+                    </label>
+                </td>
+                <td><input type="number" id="Fine Aggregate" name="FineAgg"min = "0" value ="0"/>
+                </td>
+            
+                <td><label for="Age">
+                        Age
+                    </label>
+                </td>
+                <td><input type="number" id="Age" name="Age" min = "0" value ="0"/>
+                </td>
+            </tr>
+            </table>
+<p align="center">
+<button type="submit" style="background-color:black;margin-left:auto;margin-right:auto;display:block;margin-top:10%;margin-bottom:0%;color:white"> Predict Strength</button>
+</p>
+        
+        </form>
+    
+
+
+    <br> <br>
+    <p style="font-family:verdana;text-align:center;padding-left: 100pt;padding-right: 100pt;color:white">
+    {{prediction}}</p>
+<div>
+</body>
+  
